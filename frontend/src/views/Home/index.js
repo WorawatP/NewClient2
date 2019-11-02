@@ -73,9 +73,9 @@ export default class Home extends Component {
         }
     }
     onSubmit = async () => {
-        const { name, Address, order, Time } = this.state;
+        const { name, Address, Time, order } = this.state;
         const newData = {
-            name, Address, order, Time
+            name, Address, Time, order
         }
         await services.createOrders(newData)
         await this.getOrder();
@@ -91,8 +91,8 @@ export default class Home extends Component {
                 <div id="inputtap" style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
                     <input value={this.state.name} onChange={e => this.setState({ name: e.target.value })} />
                     <input value={this.state.address} onChange={e => this.setState({ Address: e.target.value })} />
-                    <input value={this.state.order} onChange={e => this.setState({ order: e.target.value })} />
                     <input value={this.state.time} onChange={e => this.setState({ Time: e.target.value })} />
+                    <input value={this.state.order} onChange={e => this.setState({ order: e.target.value })} />
                     <Button variant="primary" onClick={() => this.onSubmit()}>submit</Button>
                 </div>
                 <div id="info">
